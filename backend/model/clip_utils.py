@@ -15,10 +15,8 @@ def get_clip_model():
     if _model is None:
         raw_model, _, _preprocess = open_clip.create_model_and_transforms(_MODEL_NAME, pretrained=_PRETRAINED)
         _tokenizer = open_clip.get_tokenizer(_MODEL_NAME)
-        # Apply dynamic quantization to shrink model size
-        _model = torch.quantization.quantize_dynamic(
-            raw_model, {torch.nn.Linear}, dtype=torch.qint8
-        )
+        # Dynamic quantization breaks open_clip because it accesses .weight.dtype directly
+        _model = raw_model
         _model.to(_device)
         _model.eval()
     return _model, _preprocess, _tokenizer
@@ -50,5 +48,7 @@ def classify_image(image_path, label_list, top_k=1):
         confidence = float(top_probs[0].item())
         return {"label": best_label, "confidence": confidence}
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         # graceful fallback
         return {"label": "Unknown", "confidence": 0.0}

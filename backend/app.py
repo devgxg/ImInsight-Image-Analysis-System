@@ -32,14 +32,15 @@ LABEL_SETS = {
     "ground": [
         "infantry soldier", "sniper", "camouflage gear", "rocket launcher", "RPG operator",
         "combat training", "military exercise", "bulletproof vest", "military base",
-        "tank", "urban warfare", "army officer", "radio operator"
+        "tank", "urban warfare", "army officer", "radio operator", "soldiers exercising"
     ],
     "naval": [
         "aircraft carrier", "destroyer", "frigate", "submarine", "fighter jet", "drone",
         "cargo ship", "tanker", "patrol boat", "helicopter", "missile", "torpedo",
         "lifeboat", "supply vessel", "amphibious assault ship", "crew member",
         "naval officer", "naval base", "naval exercise", "naval patrol",
-        "naval surveillance", "naval operation", "naval fleet", "naval patrol aircraft"
+        "naval surveillance", "naval operation", "naval fleet", "naval patrol aircraft",
+        "warships in ocean"
     ],
     "aerial": [
         "fighter jet", "drone", "helicopter", "radar", "missile launch", "airstrike zone",
